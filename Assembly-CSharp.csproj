@@ -51,10 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AttentionGrab.cs" />
-     <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
-     <Compile Include="Assets\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\AttentionGrab.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>F:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

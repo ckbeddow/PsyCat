@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	PlayerMovement mover;
 	public Transform focusedItem;
+
+	List<string> pickups;
+	Quaternion startingRotation;
 
 	public float speed = 2f;
 	// Use this for initialization
 	void Start () {
 		mover = GetComponent<PlayerMovement> ();
+		pickups = new List<string>();
+		startingRotation = this.transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 		if(focusedItem != null){
 		transform.LookAt (new Vector3(focusedItem.position.x , 0, focusedItem.position.z));
 
-		moveDirection = transform.forward * yMove + transform.right * xMove;
+		moveDirection = transform.forward * xMove + transform.right * yMove;
 
 		}
 
@@ -36,5 +41,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void SetFocus(Transform newFocus){
 		focusedItem = newFocus;
+		if (focusedItem == null) {
+			this.transform.rotation = startingRotation;
+		}
+	}
+		
+
+	public void PickUp(string pickupName){
+		pickups.Add (pickupName);
 	}
 }
